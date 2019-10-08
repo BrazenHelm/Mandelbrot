@@ -2,10 +2,6 @@
 #include <iostream>
 
 namespace BHFractals {
-	
-	void Settings::ShowZoom() {
-		std::cout << ZOOM << std::endl;
-	}
 
 	double Settings::ScaleX(int x) {
 		double a = ZOOM / (WIDTH - 1);

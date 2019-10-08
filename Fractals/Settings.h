@@ -13,7 +13,6 @@ namespace BHFractals {
 
 		double ScaleX(int x);
 		double ScaleY(int y);
-		void ShowZoom();
 	};
 
 }

@@ -9,8 +9,6 @@ using namespace BHFractals;
 int main() {
 
 	Settings settings;	// edit Settings.h to adjust image settings
-	settings.ShowZoom();
-	std::cout << sizeof(Color);
 	Bitmap bitmap(settings.WIDTH, settings.HEIGHT);
 
 	for (int x = 0; x < settings.WIDTH; ++x) {
