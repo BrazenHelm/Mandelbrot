@@ -3,20 +3,19 @@
 #include "BitmapInfoHeader.h"
 #include <fstream>
 
-using BHFractals::BitmapFileHeader;
-using BHFractals::BitmapInfoHeader;
+using namespace BHFractals;
 using std::uint8_t;
 
 namespace BHFractals {
 
 	int Bitmap::DataSize() {
-		return m_width * m_height * 3;
+		return m_width * m_height * sizeof(Color);
 	}
 
 	Bitmap::Bitmap(int width, int height) :
 		m_width(width), m_height(height),
-		m_pPixels(new uint8_t[width * height * 3]{ 0 }) {
-	};
+		m_pPixels(new uint8_t[width * height * sizeof(Color)]{ 0 }) {
+	}
 
 	bool Bitmap::write(std::string filename) {
 		BitmapFileHeader fileHeader;
@@ -44,13 +43,13 @@ namespace BHFractals {
 		return true;
 	}
 
-	void Bitmap::setPixel(int x, int y, uint8_t red, uint8_t green, uint8_t blue) {
+	void Bitmap::setPixel(int x, int y, Color color) {
 		uint8_t* pPixel = m_pPixels.get();
-		pPixel += 3 * (x + y * m_width);
+		pPixel += sizeof(color) * (x + y * m_width);
 
-		pPixel[0] = blue;
-		pPixel[1] = green;
-		pPixel[2] = red;
+		pPixel[0] = color.b;
+		pPixel[1] = color.g;
+		pPixel[2] = color.r;
 	}
 
 }

@@ -1,4 +1,5 @@
 #pragma once
+#include "Color.h"
 #include <string>
 #include <cstdint>
 
@@ -16,7 +17,7 @@ namespace BHFractals {
 		Bitmap(int width, int height);
 		
 		bool write(std::string filename);
-		void setPixel(int x, int y, std::uint8_t red, std::uint8_t green, std::uint8_t blue);
+		void setPixel(int x, int y, BHFractals::Color color);
 	};
 
 }
