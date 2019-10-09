@@ -20,7 +20,7 @@ int main() {
 			double yScaled = settings.ScaleY(y);
 			int iterations = Mandelbrot::getIterations(xScaled, yScaled);
 
-			Color color;
+			Color color = Color::Black();
 			if (iterations != Mandelbrot::MAX_ITERATIONS) {
 				color.g = static_cast<double>(iterations) / Mandelbrot::MAX_ITERATIONS;
 			}

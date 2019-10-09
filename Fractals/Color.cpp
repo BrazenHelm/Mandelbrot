@@ -26,12 +26,12 @@ namespace BHFractals {
 
 
 	Color Color::Black() { return Color(0, 0, 0); }
-	Color Color::Red() { return Color(255, 0, 0); }
-	Color Color::Green() { return Color(0, 255, 0); }
-	Color Color::Blue() { return Color(0, 0, 255); }
-	Color Color::Cyan() { return Color(0, 255, 255); }
-	Color Color::Magenta() { return Color(255, 0, 255); }
-	Color Color::Yellow() { return Color(255, 255, 0); }
-	Color Color::White() { return Color(255, 255, 255); }
+	Color Color::Red() { return Color(1, 0, 0); }
+	Color Color::Green() { return Color(0, 1, 0); }
+	Color Color::Blue() { return Color(0, 0, 1); }
+	Color Color::Cyan() { return Color(0, 1, 1); }
+	Color Color::Magenta() { return Color(1, 0, 1); }
+	Color Color::Yellow() { return Color(1, 1, 0); }
+	Color Color::White() { return Color(1, 1, 1); }
 
 }
