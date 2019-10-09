@@ -1,4 +1,6 @@
 #include "Color.h"
+#include <algorithm>
+#include <initializer_list>
 
 namespace BHFractals {
 
@@ -7,18 +9,14 @@ namespace BHFractals {
 	}
 
 	Color::Color(double r, double g, double b) :
-		r(r), g(g), b(b) {
+		r(std::clamp(r, 0.0, 1.0)),
+		g(std::clamp(g, 0.0, 1.0)),
+		b(std::clamp(b, 0.0, 1.0)) {
 	}
 
-	std::uint8_t Color::getR255() {
-		return static_cast<std::uint8_t>(r * 255 + 0.5);
-	}
-	std::uint8_t Color::getG255() {
-		return static_cast<std::uint8_t>(g * 255 + 0.5);
-	}
-	std::uint8_t Color::getB255() {
-		return static_cast<std::uint8_t>(b * 255 + 0.5);
-	}
+	std::uint8_t Color::getR255() { return static_cast<std::uint8_t>(r * 255 + 0.5); }
+	std::uint8_t Color::getG255() { return static_cast<std::uint8_t>(g * 255 + 0.5); }
+	std::uint8_t Color::getB255() { return static_cast<std::uint8_t>(b * 255 + 0.5); }
 
 
 
