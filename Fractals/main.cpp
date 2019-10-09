@@ -46,7 +46,6 @@ int main() {
 
 			Color color = inside;
 			if (iterations != Mandelbrot::MAX_ITERATIONS) {
-				//double t = static_cast<double>(iterations) / Mandelbrot::MAX_ITERATIONS;
 				double t = static_cast<double>(histogram[iterations]) / histogram[Mandelbrot::MAX_ITERATIONS - 1];
 				t = pow(255, t) / 255;
 				color = Color::Lerp(dark, light, t);

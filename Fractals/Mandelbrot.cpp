@@ -1,6 +1,5 @@
 #include "Mandelbrot.h"
 #include <complex>
-#include <iostream>
 
 namespace BHFractals {
 
