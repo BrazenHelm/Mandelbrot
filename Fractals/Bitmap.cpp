@@ -9,12 +9,12 @@ using std::uint8_t;
 namespace BHFractals {
 
 	int Bitmap::DataSize() {
-		return m_width * m_height * sizeof(Color);
+		return m_width * m_height * 3;
 	}
 
 	Bitmap::Bitmap(int width, int height) :
 		m_width(width), m_height(height),
-		m_pPixels(new uint8_t[width * height * sizeof(Color)]{ 0 }) {
+		m_pPixels(new uint8_t[width * height * 3]{ 0 }) {
 	}
 
 	bool Bitmap::write(std::string filename) {
@@ -45,11 +45,11 @@ namespace BHFractals {
 
 	void Bitmap::setPixel(int x, int y, Color color) {
 		uint8_t* pPixel = m_pPixels.get();
-		pPixel += sizeof(color) * (x + y * m_width);
+		pPixel += 3 * (x + y * m_width);
 
-		pPixel[0] = color.b;
-		pPixel[1] = color.g;
-		pPixel[2] = color.r;
+		pPixel[0] = color.getB255();
+		pPixel[1] = color.getG255();
+		pPixel[2] = color.getR255();
 	}
 
 }

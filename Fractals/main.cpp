@@ -19,10 +19,15 @@ int main() {
 			double xScaled = settings.ScaleX(x);
 			double yScaled = settings.ScaleY(y);
 			int iterations = Mandelbrot::getIterations(xScaled, yScaled);
-			double green = (double)iterations / Mandelbrot::MAX_ITERATIONS;
-			std::uint8_t green255 = (std::uint8_t)(green * 256);
+
 			Color color;
-			color.g = green255;
+			if (iterations != Mandelbrot::MAX_ITERATIONS) {
+				color.g = static_cast<double>(iterations) / Mandelbrot::MAX_ITERATIONS;
+			}
+			//double green = (double)iterations / Mandelbrot::MAX_ITERATIONS;
+			//std::uint8_t green255 = (std::uint8_t)(green * 256);
+			//Color color;
+			//color.g = green255;
 			bitmap.setPixel(x, y, color);
 		}
 	}

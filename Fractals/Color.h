@@ -5,16 +5,20 @@ namespace BHFractals {
 
 	class Color {
 	public:
-		std::uint8_t r;
-		std::uint8_t g;
-		std::uint8_t b;
-
-		double red;
-		double green;
-		double blue;
+		double r;
+		double g;
+		double b;
 
 		Color();
-		Color(std::uint8_t r, std::uint8_t g, std::uint8_t b);
+		Color(double r, double g, double b);
+
+		std::uint8_t getR255();
+		std::uint8_t getG255();
+		std::uint8_t getB255();
+
+
+
+
 
 		static Color Black();
 		static Color Red();
