@@ -1,14 +1,15 @@
 #include "FractalMaker.h"
 #include "Mandelbrot.h"
+#include "Settings.h"
 #include <iostream>
 #include <numeric>
 
 namespace BHFractals {
 
-	FractalMaker::FractalMaker(int width, int height) :
-		bitmap(width, height),
+	FractalMaker::FractalMaker() :
+		bitmap(Settings::WIDTH, Settings::HEIGHT),
 		histogram(new int[Mandelbrot::MAX_ITERATIONS]{ 0 }),
-		table(new int[width * height]) {
+		table(new int[Settings::WIDTH * Settings::HEIGHT]) {
 	}
 	
 	
@@ -35,7 +36,8 @@ namespace BHFractals {
 
 	void FractalMaker::drawFractal() {
 		
-		Color light = Color(1.00, 0.08, 0.56);
+		//Color light = Color(1.00, 0.08, 0.56);
+		Color light = Color::Yellow();
 		Color dark = Color::Black();
 		Color inside = Color::Black();
 
