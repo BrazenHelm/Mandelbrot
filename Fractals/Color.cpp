@@ -26,7 +26,14 @@ namespace BHFractals {
 		return Color(lhs.r + rhs.r, lhs.g + rhs.g, lhs.b + rhs.b);
 	}
 
-
+	Color Color::Lerp(const Color& first, const Color& second, double t) {
+		if (t <= 0)
+			return first;
+		else if (t >= 1)
+			return second;
+		else
+			return (1 - t) * first + t * second;
+	}
 
 	Color Color::Black() { return Color(0, 0, 0); }
 	Color Color::Red() { return Color(1, 0, 0); }
