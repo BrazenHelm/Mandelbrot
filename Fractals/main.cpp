@@ -11,6 +11,10 @@ int main() {
 	Settings settings;	// edit Settings.h to adjust image settings
 	Bitmap bitmap(settings.WIDTH, settings.HEIGHT);
 
+	Color light = Color::Yellow();
+	Color dark = Color::Black();
+	Color inside = Color::Red();
+
 	for (int x = 0; x < settings.WIDTH; ++x) {
 		if (x % 10 == 0) {
 			std::cout << x << std::endl;
@@ -20,14 +24,11 @@ int main() {
 			double yScaled = settings.ScaleY(y);
 			int iterations = Mandelbrot::getIterations(xScaled, yScaled);
 
-			Color color = Color::Black();
+			Color color = inside;
 			if (iterations != Mandelbrot::MAX_ITERATIONS) {
-				color.g = static_cast<double>(iterations) / Mandelbrot::MAX_ITERATIONS;
+				double t = static_cast<double>(iterations) / Mandelbrot::MAX_ITERATIONS;
+				color = Color::Lerp(dark, light, t);
 			}
-			//double green = (double)iterations / Mandelbrot::MAX_ITERATIONS;
-			//std::uint8_t green255 = (std::uint8_t)(green * 256);
-			//Color color;
-			//color.g = green255;
 			bitmap.setPixel(x, y, color);
 		}
 	}

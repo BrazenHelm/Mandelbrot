@@ -19,7 +19,7 @@ namespace BHFractals {
 		friend Color operator*(double t, const Color& color);
 		friend Color operator+(const Color& lhs, const Color& rhs);
 
-		Color Lerp(const Color& first, const Color& second, double t);
+		static Color Lerp(const Color& first, const Color& second, double t);
 
 		static Color Black();
 		static Color Red();
