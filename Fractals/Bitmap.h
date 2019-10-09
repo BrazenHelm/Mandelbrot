@@ -12,6 +12,7 @@ namespace BHFractals {
 		int m_height{ 0 };
 		std::unique_ptr<std::uint8_t[]> m_pPixels{ nullptr };
 		int DataSize();
+		static const int BYTES_PER_PIXEL = 3;
 
 	public:
 		Bitmap(int width, int height);
