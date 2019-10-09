@@ -1,27 +1,26 @@
 #include "Bitmap.h"
 #include "Color.h"
-#include "Mandelbrot.h"
-#include "Settings.h"
+#include "Mandelbrot.h"			// edit Mandelbrot.h to adjust algorithm parameters
+#include "Settings.h"			// edit Settings.h to adjust image size and position
 #include <iostream>
 
 using namespace BHFractals;
 
 int main() {
 
-	Settings settings;	// edit Settings.h to adjust image size and position
-	Bitmap bitmap(settings.WIDTH, settings.HEIGHT);
+	Bitmap bitmap(Settings::WIDTH, Settings::HEIGHT);
 
 	Color light = Color(1.00, 0.08, 0.58);
 	Color dark = Color::Black();
 	Color inside = Color::Black();
 
-	for (int x = 0; x < settings.WIDTH; ++x) {
+	for (int x = 0; x < Settings::WIDTH; ++x) {
 		if (x % 10 == 0) {
 			std::cout << x << std::endl;
 		}
-		for (int y = 0; y < settings.HEIGHT; ++y) {
-			double xScaled = settings.ScaleX(x);
-			double yScaled = settings.ScaleY(y);
+		for (int y = 0; y < Settings::HEIGHT; ++y) {
+			double xScaled = Settings::ScaleX(x);
+			double yScaled = Settings::ScaleY(y);
 			int iterations = Mandelbrot::getIterations(xScaled, yScaled);
 
 			Color color = inside;
@@ -33,12 +32,13 @@ int main() {
 		}
 	}
 
-	if (bitmap.write(settings.FILENAME)) {
-		std::cout << "Finished writing to " << settings.FILENAME << std::endl;
+	const std::string FILENAME = "image.bmp";
+	if (bitmap.write(FILENAME)) {
+		std::cout << "Finished writing to " << FILENAME << std::endl;
 		return 0;
 	}
 	else {
-		std::cout << "Failed to write to " << settings.FILENAME << std::endl;
+		std::cout << "Failed to write to " << FILENAME << std::endl;
 		return 1;
 	}
 }
