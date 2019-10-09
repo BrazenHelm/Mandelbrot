@@ -8,12 +8,12 @@ using namespace BHFractals;
 
 int main() {
 
-	Settings settings;	// edit Settings.h to adjust image settings
+	Settings settings;	// edit Settings.h to adjust image size and position
 	Bitmap bitmap(settings.WIDTH, settings.HEIGHT);
 
-	Color light = Color::Yellow();
+	Color light = Color(1.00, 0.08, 0.58);
 	Color dark = Color::Black();
-	Color inside = Color::Red();
+	Color inside = Color::Black();
 
 	for (int x = 0; x < settings.WIDTH; ++x) {
 		if (x % 10 == 0) {
