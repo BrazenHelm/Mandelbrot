@@ -1,5 +1,4 @@
 #include "Settings.h"
-#include <iostream>
 
 namespace BHFractals {
 

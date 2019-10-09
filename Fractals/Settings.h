@@ -6,9 +6,9 @@ namespace BHFractals {
 	struct Settings {
 		static const int WIDTH = 600;			// width of image in pixels
 		static const int HEIGHT = 600;			// height of image in pixels
-		static constexpr double C_X = -0.5;		// x co-ordinate of centre of image
-		static constexpr double C_Y = 0.0;		// y co-ordinate of centre of image
-		static constexpr double ZOOM = 3.0;		// width of image in units
+		static constexpr double C_X = -0.569;		// x co-ordinate of centre of image
+		static constexpr double C_Y = 0.488;		// y co-ordinate of centre of image
+		static constexpr double ZOOM = 0.05;		// width of image in units
 	};
 
 	double ScaleX(int x);
