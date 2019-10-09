@@ -35,7 +35,7 @@ namespace BHFractals {
 
 	void FractalMaker::drawFractal() {
 		
-		Color light = Color::Green();
+		Color light = Color(1.00, 0.08, 0.56);
 		Color dark = Color::Black();
 		Color inside = Color::Black();
 
