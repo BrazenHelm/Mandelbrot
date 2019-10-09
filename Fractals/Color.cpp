@@ -1,6 +1,5 @@
 #include "Color.h"
 #include <algorithm>
-#include <initializer_list>
 
 namespace BHFractals {
 
