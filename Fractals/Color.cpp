@@ -42,5 +42,6 @@ namespace BHFractals {
 	Color Color::Magenta() { return Color(1, 0, 1); }
 	Color Color::Yellow() { return Color(1, 1, 0); }
 	Color Color::White() { return Color(1, 1, 1); }
+	Color Color::Pink() { return Color(1.00, 0.08, 0.56); }
 
 }

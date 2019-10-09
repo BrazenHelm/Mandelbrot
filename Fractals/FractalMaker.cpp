@@ -15,7 +15,12 @@ namespace BHFractals {
 	
 	void FractalMaker::calculateIterations() {
 
-		for (int x = 0; x < Settings::WIDTH; ++x) {
+		int progress = 0;
+		for (int x = 0; x < Settings::WIDTH; ++x) {		
+			if (100 * x / Settings::WIDTH > progress) {
+				++progress;
+				std::cout << progress << "% complete" << std::endl;
+			}
 			for (int y = 0; y < Settings::HEIGHT; ++y) {
 				double xScaled = ScaleX(x);
 				double yScaled = ScaleY(y);
@@ -35,21 +40,16 @@ namespace BHFractals {
 
 
 	void FractalMaker::drawFractal() {
-		
-		//Color light = Color(1.00, 0.08, 0.56);
-		Color light = Color::Yellow();
-		Color dark = Color::Black();
-		Color inside = Color::Black();
 
 		for (int x = 0; x < Settings::WIDTH; ++x) {
 			for (int y = 0; y < Settings::HEIGHT; ++y) {
 				int iterations = table[x + y * Settings::WIDTH];
-				Color color = inside;
+				Color color = Settings::COLOR_INSIDE;
 
 				if (iterations != Mandelbrot::MAX_ITERATIONS) {
 					double t = static_cast<double>(histogram[iterations]) / histogram[Mandelbrot::MAX_ITERATIONS - 1];
 					t = pow(255, t) / 255;
-					color = Color::Lerp(dark, light, t);
+					color = Color::Lerp(Settings::COLOR_DARK, Settings::COLOR_LIGHT, t);
 				}
 
 				bitmap.setPixel(x, y, color);

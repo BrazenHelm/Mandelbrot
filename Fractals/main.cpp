@@ -3,6 +3,7 @@
 
 // edit Mandelbrot.h to adjust algorithm parameters
 // edit Settings.h to adjust image size and position
+// edit Settings.cpp to adjust image colors
 
 int main() {
 

@@ -29,6 +29,7 @@ namespace BHFractals {
 		static Color Magenta();
 		static Color Yellow();
 		static Color White();
+		static Color Pink();
 	};
 
 }

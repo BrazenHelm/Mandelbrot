@@ -1,6 +1,11 @@
+#include "Color.h"
 #include "Settings.h"
 
 namespace BHFractals {
+
+	Color const Settings::COLOR_LIGHT = Color::Pink();
+	Color const Settings::COLOR_DARK = Color::Black();
+	Color const Settings::COLOR_INSIDE = Color::Black();
 
 	double ScaleX(int x) {
 		double a = Settings::ZOOM / (Settings::WIDTH - 1);
