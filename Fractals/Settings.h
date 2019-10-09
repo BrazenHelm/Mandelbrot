@@ -9,9 +9,9 @@ namespace BHFractals {
 		static constexpr double C_X = -0.5;		// x co-ordinate of centre of image
 		static constexpr double C_Y = 0.0;		// y co-ordinate of centre of image
 		static constexpr double ZOOM = 3.0;		// width of image in units
-
-		static double ScaleX(int x);
-		static double ScaleY(int y);
 	};
+
+	double ScaleX(int x);
+	double ScaleY(int y);
 
 }

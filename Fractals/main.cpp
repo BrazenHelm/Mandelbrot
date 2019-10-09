@@ -19,8 +19,8 @@ int main() {
 			std::cout << x << std::endl;
 		}
 		for (int y = 0; y < Settings::HEIGHT; ++y) {
-			double xScaled = Settings::ScaleX(x);
-			double yScaled = Settings::ScaleY(y);
+			double xScaled = ScaleX(x);
+			double yScaled = ScaleY(y);
 			int iterations = Mandelbrot::getIterations(xScaled, yScaled);
 
 			Color color = inside;

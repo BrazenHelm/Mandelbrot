@@ -3,16 +3,16 @@
 
 namespace BHFractals {
 
-	double Settings::ScaleX(int x) {
-		double a = ZOOM / (WIDTH - 1);
-		double b = C_X - (ZOOM / 2);
+	double ScaleX(int x) {
+		double a = Settings::ZOOM / (Settings::WIDTH - 1);
+		double b = Settings::C_X - (Settings::ZOOM / 2);
 		return a * x + b;
 	}
 
-	double Settings::ScaleY(int y) {
-		double yZoom = ZOOM * HEIGHT / WIDTH;
-		double a = yZoom / (HEIGHT - 1);
-		double b = C_Y - (yZoom / 2);
+	double ScaleY(int y) {
+		double yZoom = Settings::ZOOM * Settings::HEIGHT / Settings::WIDTH;
+		double a = yZoom / (Settings::HEIGHT - 1);
+		double b = Settings::C_Y - (yZoom / 2);
 		return a * y + b;
 	}
 
