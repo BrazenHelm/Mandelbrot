@@ -16,8 +16,8 @@ namespace BHFractals {
 		std::uint8_t getG255();
 		std::uint8_t getB255();
 
-
-
+		friend Color operator*(double t, const Color& color);
+		friend Color operator+(const Color& lhs, const Color& rhs);
 
 
 		static Color Black();

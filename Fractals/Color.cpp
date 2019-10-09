@@ -18,8 +18,13 @@ namespace BHFractals {
 	std::uint8_t Color::getG255() { return static_cast<std::uint8_t>(g * 255 + 0.5); }
 	std::uint8_t Color::getB255() { return static_cast<std::uint8_t>(b * 255 + 0.5); }
 
+	Color operator*(double t, const Color& color) {
+		return Color(t * color.r, t * color.g, t * color.b);
+	}
 
-
+	Color operator+(const Color& lhs, const Color& rhs) {
+		return Color(lhs.r + rhs.r, lhs.g + rhs.g, lhs.b + rhs.b);
+	}
 
 
 
