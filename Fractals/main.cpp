@@ -14,8 +14,10 @@ int main() {
 	Color dark = Color::Black();
 	Color inside = Color::Black();
 
+	std::unique_ptr<int[]> histogram(new int[Mandelbrot::MAX_ITERATIONS + 1]{ 0 });
+
 	for (int x = 0; x < Settings::WIDTH; ++x) {
-		if (x % 10 == 0) {
+		if (x % 50 == 0) {
 			std::cout << x << std::endl;
 		}
 		for (int y = 0; y < Settings::HEIGHT; ++y) {
@@ -23,22 +25,30 @@ int main() {
 			double yScaled = ScaleY(y);
 			int iterations = Mandelbrot::getIterations(xScaled, yScaled);
 
-			Color color = inside;
-			if (iterations != Mandelbrot::MAX_ITERATIONS) {
-				double t = static_cast<double>(iterations) / Mandelbrot::MAX_ITERATIONS;
-				color = Color::Lerp(dark, light, t);
-			}
-			bitmap.setPixel(x, y, color);
+			++histogram[iterations];
+			
+			//Color color = inside;
+			//if (iterations != Mandelbrot::MAX_ITERATIONS) {
+			//	double t = static_cast<double>(iterations) / Mandelbrot::MAX_ITERATIONS;
+			//	color = Color::Lerp(dark, light, t);
+			//}
+			//bitmap.setPixel(x, y, color);
 		}
 	}
 
-	const std::string FILENAME = "image.bmp";
-	if (bitmap.write(FILENAME)) {
-		std::cout << "Finished writing to " << FILENAME << std::endl;
-		return 0;
+	for (int i = 0; i <= Mandelbrot::MAX_ITERATIONS; ++i) {
+		std::cout << histogram[i] << " ";
 	}
-	else {
-		std::cout << "Failed to write to " << FILENAME << std::endl;
-		return 1;
-	}
+	std::cout << std::endl;
+	return 0;
+
+	//const std::string FILENAME = "image.bmp";
+	//if (bitmap.write(FILENAME)) {
+	//	std::cout << "Finished writing to " << FILENAME << std::endl;
+	//	return 0;
+	//}
+	//else {
+	//	std::cout << "Failed to write to " << FILENAME << std::endl;
+	//	return 1;
+	//}
 }
