@@ -3,9 +3,6 @@
 #include "BitmapInfoHeader.h"
 #include <fstream>
 
-using namespace BHFractals;
-using std::uint8_t;
-
 namespace BHFractals {
 
 	int Bitmap::DataSize() {

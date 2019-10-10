@@ -12,8 +12,8 @@ int main() {
 	// ==== Settings ==== //
 	std::string filename = "image.bmp";		// Filename of image; must end ".bmp"
 	s.maxIterations = 1000;					// Maximum iterations the algorithm will perform
-	s.width = 2400;							// Width of the image in pixels
-	s.height = 2400;						// Height of the image in pixels
+	s.width = 0200;							// Width of the image in pixels
+	s.height = 0200;						// Height of the image in pixels
 	s.c_x = -0.569;							// x co-ordinate of the centre of the image
 	s.c_y = 0.489;							// y co-ordinate of the centre of the image
 	s.scale = 0.05;							// Width of the image on the complex plane
