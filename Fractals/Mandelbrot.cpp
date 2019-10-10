@@ -3,13 +3,13 @@
 
 namespace BHFractals {
 
-	int Mandelbrot::getIterations(double x, double y) {
+	int Mandelbrot::getIterations(double x, double y, int maxIterations) {
 
 		std::complex<double> z{ 0, 0 };
 		std::complex<double> c{ x, y };
 
 		int iterations = 0;
-		while (iterations < MAX_ITERATIONS && std::abs(z) <= DIVERGENCE_VALUE) {
+		while (iterations < maxIterations && std::abs(z) <= DIVERGENCE_VALUE) {
 			z = z * z + c;
 			++iterations;
 		}
